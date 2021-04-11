@@ -1,6 +1,6 @@
 # Maze solver
 
-This is a function, that accepts a maze and a starting position, and returns coordinates to the exit, or, if there's none, returns null.
+This is a function, that accepts a maze and a starting position, and returns coordinates to the exit, or, if there are none, returns null.
 
 It's a realization of Depth First Search algorythm.
 
