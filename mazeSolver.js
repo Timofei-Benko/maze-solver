@@ -75,16 +75,16 @@ function walk(maze, currPos, path = []) {
     path.push(currPos);
 
     // call the function recursively passing it the next potential step
-    let nextStep = (walk(maze, {x: currPos.x, y: currPos.y + 1}, path)
-            || walk(maze, {x: currPos.x + 1, y: currPos.y}, path)
-            || walk(maze, {x: currPos.x, y: currPos.y - 1}, path)
-            || walk(maze, {x: currPos.x - 1, y: currPos.y}, path))
+    let doNextStep = (walk(maze, {x: currPos.x, y: currPos.y + 1}, path)
+                        || walk(maze, {x: currPos.x + 1, y: currPos.y}, path)
+                        || walk(maze, {x: currPos.x, y: currPos.y - 1}, path)
+                        || walk(maze, {x: currPos.x - 1, y: currPos.y}, path))
 
-    if (nextStep !== null) return nextStep;
+    if (doNextStep !== null) return doNextStep;
 
     // clean up in case of walking into a deadend
-    maze[currPos.y][currPos.x] = true;
     path.pop();
+    maze[currPos.y][currPos.x] = true;
 
     // if there's no path to exit, return null
     return null;
